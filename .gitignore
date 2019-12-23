@@ -1,0 +1,29 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.class
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

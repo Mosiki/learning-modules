@@ -16,12 +16,12 @@ import java.util.List;
  * @since 2019-12-23
  */
 @Data
-public class TalentUserInputEntity{
+public class TalentUserInputEntity {
 
     @Excel(name = "姓名*")
     private String name;
 
-    @Excel(name = "性别*")
+    @Excel(name = "性别*", replace = {"男_0", "女_1"})
     private Integer gender;
 
     @Excel(name = "手机号*")
@@ -45,7 +45,7 @@ public class TalentUserInputEntity{
     @Excel(name = "职位类型*")
     private String categoryName;
 
-    @Excel(name = "薪资*")
+    @Excel(name = "薪资*", replace = {"3K以下_1", "3K-5K_2", "5K-10K_3", "10K-20K_4", "20K-50K_5", "50K以上_6"})
     private String salary;
 
     @Excel(name = "工作地点*")

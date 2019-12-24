@@ -15,7 +15,7 @@ public class EducationInputEntity {
     @Excel(name = "学校*")
     private String schoolName;
 
-    @Excel(name = "学历*")
+    @Excel(name = "学历*", replace = {"初中及以下_1", "中专_2", "高中_3", "大专_4", "本科_5", "硕士_6", "博士_7"})
     private String record;
 
     @Excel(name = "开始年份*")

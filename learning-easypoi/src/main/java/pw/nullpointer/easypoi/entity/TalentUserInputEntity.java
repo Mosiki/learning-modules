@@ -46,7 +46,7 @@ public class TalentUserInputEntity {
     private String categoryName;
 
     @Excel(name = "薪资*", replace = {"3K以下_1", "3K-5K_2", "5K-10K_3", "10K-20K_4", "20K-50K_5", "50K以上_6"})
-    private String salary;
+    private Integer salary;
 
     @Excel(name = "工作地点*")
     private String workArea;

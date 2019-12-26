@@ -34,7 +34,8 @@ public class TalentUserController {
         System.out.println("校验失败的集合:" + JSONObject.toJSONString(result.getFailList()));
         System.out.println("校验通过的集合:" + JSONObject.toJSONString(result.getList()));
         for (TalentUserInputEntity entity : result.getFailList()) {
-            String msg = "第" + entity.getRowNum() + "行的错误是：" + entity.getErrorMsg();
+            int line = entity.getRowNum() + 1;
+            String msg = "第" + line + "行的错误是：" + entity.getErrorMsg();
             System.out.println(msg);
         }
         return true;

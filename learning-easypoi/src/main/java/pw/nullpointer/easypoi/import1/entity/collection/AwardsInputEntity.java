@@ -1,9 +1,11 @@
-package pw.nullpointer.easypoi.entity.collection;
+package pw.nullpointer.easypoi.import1.entity.collection;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import lombok.Data;
 
-import java.util.Date;
+import javax.validation.constraints.Pattern;
+
+import static pw.nullpointer.easypoi.import1.entity.TalentUserInputEntity.DATE_REGEXP;
 
 /**
  * @author WeJan
@@ -19,5 +21,6 @@ public class AwardsInputEntity {
     private String description;
 
     @Excel(name = "获奖时间")
-    private Date date;
+    @Pattern(regexp = DATE_REGEXP, message = "[获奖经历][获奖时间]时间格式错误")
+    private String dateStr;
 }

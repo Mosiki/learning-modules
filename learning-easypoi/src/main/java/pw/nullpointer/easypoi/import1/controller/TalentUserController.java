@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import pw.nullpointer.easypoi.import1.entity.TalentUserInputEntity;
+import pw.nullpointer.easypoi.import1.handler.TalentImportVerifyHandler;
+
+import javax.annotation.Resource;
 
 /**
  * @author WeJan
@@ -18,6 +21,9 @@ import pw.nullpointer.easypoi.import1.entity.TalentUserInputEntity;
 @RestController
 @RequestMapping("/talentUser")
 public class TalentUserController {
+
+    @Resource
+    private TalentImportVerifyHandler talentImportVerifyHandler;
 
     @PostMapping("/upload")
     public Boolean upload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
@@ -28,6 +34,7 @@ public class TalentUserController {
         params.setTitleRows(0);
         // 开启Excel校验
         params.setNeedVerfiy(true);
+        params.setVerifyHandler(talentImportVerifyHandler);
         ExcelImportResult<TalentUserInputEntity> result = ExcelImportUtil.importExcelMore(multipartFile.getInputStream(),
                 TalentUserInputEntity.class, params);
         System.out.println("是否校验失败: " + result.isVerfiyFail());

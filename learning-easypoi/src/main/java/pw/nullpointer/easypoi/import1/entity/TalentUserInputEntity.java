@@ -42,6 +42,7 @@ public class TalentUserInputEntity implements IExcelDataModel, IExcelModel {
     private String genderStr;
 
     @Excel(name = "手机号*")
+    @Pattern(regexp = "[0-9]{11}", message = "手机号不正确")
     private String phone;
 
     @Excel(name = "开始工作时间*")

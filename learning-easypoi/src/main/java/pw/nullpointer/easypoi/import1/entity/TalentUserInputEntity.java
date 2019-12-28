@@ -13,6 +13,7 @@ import pw.nullpointer.easypoi.import1.entity.collection.PunishmentInputEntity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author WeJan
@@ -91,4 +92,18 @@ public class TalentUserInputEntity implements IExcelDataModel, IExcelModel {
 
     @Excel(name = "特长")
     private String specialty;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TalentUserInputEntity that = (TalentUserInputEntity) o;
+        return Objects.equals(name, that.name) &&
+                Objects.equals(phone, that.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, phone);
+    }
 }

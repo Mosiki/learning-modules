@@ -10,6 +10,7 @@
 
     <modules>
         <module>learning-easypoi</module>
+        <module>learning-mapstruct</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

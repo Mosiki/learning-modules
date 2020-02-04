@@ -1,0 +1,1 @@
+Hibernate Validator 校验最佳实践，示例程序入口：pw.nullpointer.validator.controller.TestController

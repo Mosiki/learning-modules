@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+
+    <!-- 彩色日志格式 -->
+    <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_PATTERN">%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{${sys:PID}}{magenta}%clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%wEx
+        </Property>
+    </Properties>
+
+    <!-- ===================================================================== -->
+    <!--					       appender 配置						       -->
+    <!-- ===================================================================== -->
+    <Appenders>
+        <!-- Console 输出设置 -->
+        <Console name="console.appender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout charset="UTF-8">
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+
+    <!-- ===================================================================== -->
+    <!--					       logger 配置								   -->
+    <!-- ===================================================================== -->
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console.appender"/>
+        </Root>
+        <Logger name="debug.log" level="DEBUG" additivity="true"/>
+        <Logger name="info.log" level="INFO" additivity="true"/>
+        <Logger name="error.log" level="WARN" additivity="true"/>
+        <Logger name="access.log" level="INFO" additivity="true"/>
+    </Loggers>
+</Configuration>

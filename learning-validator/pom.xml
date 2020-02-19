@@ -40,11 +40,14 @@
             <version>1.18.10</version>
         </dependency>
 
+<!--
+如果依赖了spring-boot-starter-web 就不用加
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.1.0.Final</version>
         </dependency>
+-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

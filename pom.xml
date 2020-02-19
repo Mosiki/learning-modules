@@ -12,6 +12,7 @@
         <module>learning-easypoi</module>
         <module>learning-mapstruct</module>
         <module>learning-validator</module>
+        <module>learning-designpatterns</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

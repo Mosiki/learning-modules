@@ -1,0 +1,15 @@
+app.name: learning-designpatterns
+
+server:
+  port: 8083
+  servlet:
+    context-path: /${app.name}
+
+spring:
+  application.name: ${app.name}
+  mvc:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    dispatch-trace-request: true
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false

@@ -13,6 +13,12 @@
         <module>learning-mapstruct</module>
         <module>learning-validator</module>
         <module>learning-designpatterns</module>
+        <module>learning-jdk8</module>
+        <module>learning-redis</module>
+        <module>learning-guava</module>
+        <module>learning-refactor</module>
+        <module>learning-spring</module>
+        <module>learning-guice</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,4 +1,7 @@
-package pw.nullpointer.design.strategy;
+package pw.nullpointer.strategy;
+
+import pw.nullpointer.design.strategy.PrizeSendContext;
+import pw.nullpointer.design.strategy.PrizeSendStrategyFactory;
 
 /**
  * @author WeJan

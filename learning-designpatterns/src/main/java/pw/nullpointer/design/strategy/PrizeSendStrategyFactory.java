@@ -1,33 +1,30 @@
 package pw.nullpointer.design.strategy;
 
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static pw.nullpointer.design.strategy.PrizeSendStrategy.DEFAULT;
 
 /**
  * @author WeJan
  * @since 2020-02-06
  */
-public class PrizeSendStrategyFactory {
+@Component
+public class PrizeSendStrategyFactory implements ApplicationContextAware {
     private static final Map<String, PrizeSendStrategy> PRIZE_SEND_STRATEGY_MAP = new HashMap<>();
 
-    static {
-        PRIZE_SEND_STRATEGY_MAP.put(StrategyKeys.MONEY, new MoneyPrizeSendStrategy());
-        PRIZE_SEND_STRATEGY_MAP.put(StrategyKeys.CALL_CHARGE, new CallChargePrizeSendStrategy());
-        PRIZE_SEND_STRATEGY_MAP.put(StrategyKeys.IN_KIND, new InKindPrizeSendStrategy());
-    }
-
-    private PrizeSendStrategyFactory() {
-    }
-
-    private static final PrizeSendStrategy NONE_SEND_STRATEGY = new EmptyPrizeSendStrategy();
-
     public static PrizeSendStrategy getPrizeSendStrategy(String strategyKey) {
-        return PRIZE_SEND_STRATEGY_MAP.getOrDefault(strategyKey, NONE_SEND_STRATEGY);
+        return PRIZE_SEND_STRATEGY_MAP.getOrDefault(strategyKey, PRIZE_SEND_STRATEGY_MAP.get(DEFAULT));
     }
 
-    private interface StrategyKeys {
-        String MONEY = "money";
-        String IN_KIND = "in_kind";
-        String CALL_CHARGE = "call_charge";
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        Map<String, PrizeSendStrategy> beans = applicationContext.getBeansOfType(PrizeSendStrategy.class);
+        beans.values().forEach(bean -> PRIZE_SEND_STRATEGY_MAP.put(bean.type(), bean));
     }
 }

@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+pw.nullpointer.boot.autoconfigure.date.DateFormatAutoConfiguration

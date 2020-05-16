@@ -5,3 +5,4 @@
 - learning-mapstruct: [mapstruct 最佳实践](http://nullpointer.pw/mapstruct%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.html)
 - learning-validator: [Hibernate Validator 最佳实践](http://nullpointer.pw/hibernate-validator-best-practice.html)
 - learning-designpatterns: [设计模式系列实战目录](http://nullpointer.pw/design-patterns.html)
+- learning-learning-springboot: [实用主义之自定义SpringBootStarter](http://nullpointer.pw/custom-springboot-starter.html)

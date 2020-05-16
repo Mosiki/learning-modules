@@ -1,0 +1,10 @@
+{
+  "properties": [
+    {
+      "name": "common.date-format.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否开启时间格式化",
+      "defaultValue": false
+    }
+  ]
+}

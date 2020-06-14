@@ -14,6 +14,7 @@
         <module>learning-mapstruct</module>
         <module>learning-validator</module>
         <module>learning-springboot</module>
+        <module>learning-redis</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

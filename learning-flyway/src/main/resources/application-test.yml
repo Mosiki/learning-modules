@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/flywaytest
+    username: root
+    password: 123456
+  flyway: # flyway 数据库DDL版本控制
+    enabled: false # 正式环境才开启

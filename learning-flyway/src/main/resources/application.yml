@@ -1,0 +1,57 @@
+app.name: learning-flyway
+
+server:
+  port: 8081
+  servlet:
+    context-path: /${app.name}
+
+spring:
+  profiles:
+    active: prod1
+  application.name: ${app.name}
+  mvc:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    dispatch-trace-request: true
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      stat-view-servlet.enabled: false
+      web-stat-filter.enabled: false
+      filter:
+        stat:
+          enabled: true
+        slf4j:
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            comment-allow: true
+#     filters: stat,wall,slf4j 注释此行，filter改成上面的格式
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      maxOpenPreparedStatements: 20
+      useGlobalDataSourceStat: false
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.logSlowSql=true;druid.stat.slowSqlMillis=1
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: pw.nullpointer.flyway.domain
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30

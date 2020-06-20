@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/flywaytest?autoReconnect=true&failOverReadOnly=false&maxReconnects=10&characterEncoding=UTF8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  flyway: # flyway 数据库DDL版本控制
+    enabled: true # 正式环境才开启
+    clean-disabled: true # 禁用数据库清理
+    encoding: UTF-8
+    locations: classpath:/db
+    #  flyway会在库中创建此名称元数据表，用于记录所有版本演化和状态,同一个库不同项目可能冲突，每个项目一张表来记录
+    table: flyway_schema_history_learning-flyway #TODO 值的后缀指定为当前项目名称
+    baseline-version: 1 # 基线版本默认开始序号 默认为 1
+    baseline-on-migrate: true #  针对非空数据库是否默认调用基线版本,为空的话默认会调用基线版本
+    placeholders: # 定义afterMigrateError.sql要清理的元数据表表名
+      flyway-table: ${spring.flyway.table}

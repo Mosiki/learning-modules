@@ -15,6 +15,7 @@
         <module>learning-validator</module>
         <module>learning-springboot</module>
         <module>learning-redis</module>
+        <module>learning-flyway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -134,6 +135,16 @@
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
                 <version>1.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.22</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

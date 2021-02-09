@@ -9,7 +9,7 @@ import javax.annotation.Resource;
  * @since 2020-02-27
  */
 @Component
-public class ActivityDisableState extends ActivityState{
+public class ActivityDisableState extends ActivityState {
 
     @Resource
     private ActivityEnableState activityEnableState;
@@ -26,8 +26,9 @@ public class ActivityDisableState extends ActivityState{
 
     @Override
     public boolean enable(Activity activity) {
-        super.activityContext.setActivityState(activityEnableState);
-        return this.activityContext.enable(activity);
+        ActivityContext activityContext = this.activityContext.get();
+        activityContext.setActivityState(activityEnableState);
+        return activityContext.enable(activity);
     }
 
     @Override

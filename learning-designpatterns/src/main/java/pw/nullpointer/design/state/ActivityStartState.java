@@ -43,13 +43,15 @@ public class ActivityStartState extends ActivityState {
 
     @Override
     public boolean disable(Activity activity) {
-        super.activityContext.setActivityState(activityDisableState);
-        return this.activityContext.disable(activity);
+        ActivityContext activityContext = this.activityContext.get();
+        activityContext.setActivityState(activityDisableState);
+        return activityContext.disable(activity);
     }
 
     @Override
     public boolean finish(Activity activity) {
-        super.activityContext.setActivityState(activityFinishState);
-        return this.activityContext.finish(activity);
+        ActivityContext activityContext = this.activityContext.get();
+        activityContext.setActivityState(activityFinishState);
+        return activityContext.finish(activity);
     }
 }

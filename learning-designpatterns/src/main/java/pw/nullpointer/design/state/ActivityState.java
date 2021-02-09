@@ -5,10 +5,10 @@ package pw.nullpointer.design.state;
  * @since 2020-02-27
  */
 public abstract class ActivityState {
-    protected ActivityContext activityContext;
+    protected ThreadLocal<ActivityContext> activityContext = new ThreadLocal<>();
 
     public void setActivityContext(ActivityContext activityContext) {
-        this.activityContext = activityContext;
+        this.activityContext.set(activityContext);
     }
 
     public abstract Integer type();

@@ -25,7 +25,8 @@ public class ActivityEnableState extends ActivityState {
 
     @Override
     public boolean saveDraft(Activity activity) {
-        super.activityContext.setActivityState(activityDraftState);
+        ActivityContext activityContext = this.activityContext.get();
+        activityContext.setActivityState(activityDraftState);
         return activityContext.saveDraft(activity);
     }
 
@@ -41,13 +42,15 @@ public class ActivityEnableState extends ActivityState {
 
     @Override
     public boolean start(Activity activity) {
-        super.activityContext.setActivityState(activityStartState);
+        ActivityContext activityContext = this.activityContext.get();
+        activityContext.setActivityState(activityStartState);
         return activityContext.start(activity);
     }
 
     @Override
     public boolean disable(Activity activity) {
-        super.activityContext.setActivityState(activityDisableState);
+        ActivityContext activityContext = this.activityContext.get();
+        activityContext.setActivityState(activityDisableState);
         return activityContext.disable(activity);
     }
 

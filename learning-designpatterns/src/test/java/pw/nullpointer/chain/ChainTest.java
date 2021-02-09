@@ -23,12 +23,16 @@ public class ChainTest {
 
     @Test
     public void name() {
-        OrderHandleContext order = new OrderHandleContext()
-                .setOrderNo("123")
-                .setAmount(100d)
-                .setVipLevel(3)
-                .setCouponNo("111");
-        orderHandlerChain.handle(order);
-        System.out.println("订单最终金额为： " + order.getAmount());
+        for (int i = 0; i < 20; i++) {
+            new Thread(() -> {
+                OrderHandleContext order = new OrderHandleContext()
+                        .setOrderNo("123")
+                        .setAmount(100d)
+                        .setVipLevel(3)
+                        .setCouponNo("111");
+                orderHandlerChain.handle(order);
+                System.out.println("订单最终金额为： " + order.getAmount());
+            }).start();
+        }
     }
 }

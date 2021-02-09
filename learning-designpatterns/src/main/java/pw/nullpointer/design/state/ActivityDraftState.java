@@ -31,8 +31,8 @@ public class ActivityDraftState extends ActivityState {
 
     @Override
     public boolean enable(Activity activity) {
-        super.activityContext.setActivityState(activityEnableState);
-        return activityContext.enable(activity);
+        activityContext.get().setActivityState(activityEnableState);
+        return activityContext.get().enable(activity);
     }
 
     @Override

@@ -51,4 +51,11 @@ public abstract class ActivityState {
      * @param activity
      */
     public abstract boolean finish(Activity activity);
+
+    /**
+     * 清理 ThreadLocal
+     */
+    public void clear() {
+        activityContext.remove();
+    }
 }

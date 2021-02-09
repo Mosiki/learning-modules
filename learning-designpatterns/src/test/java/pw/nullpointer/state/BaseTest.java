@@ -41,6 +41,8 @@ public class BaseTest {
                 Assert.assertTrue(context.start(activity));
                 Assert.assertTrue(context.finish(activity));
                 Assert.assertFalse(context.start(activity));
+                // 使用完需要释放 ThreadLocal
+                activityState.clear();
             }).start();
         }
 

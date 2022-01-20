@@ -52,6 +52,9 @@ public class RedisBlockQueue {
                         }
                     } catch (Exception ignored) {
                         // 防止获取key达到超时时间抛出QueryTimeoutException异常退出
+                        // 防止 Redis 连接失效，重新获取连接  https://github.com/Mosiki/learning-modules/issues/5
+                        RedisConnectionUtils.releaseConnection(connection, connectionFactory);
+                        connection = RedisConnectionUtils.getConnection(connectionFactory);
                     } finally {
                         if (success) {
                             // 处理成功才删除备份队列的key
